@@ -1,0 +1,18 @@
+@startuml
+title Job Application Platform - Context Diagram
+
+actor "Applicant" as Applicant
+actor "Recruiter" as Recruiter
+actor "Operator / ted" as Operator
+
+rectangle "Modern Web Platform - Python" {
+  component "FastAPI Job Application API" as API
+  database "JSON / CSV Storage\nFuture PostgreSQL" as Store
+}
+
+Recruiter --> API : Create/Update/Delete Jobs
+Applicant --> API : Search/View Jobs
+Operator --> API : Health Check / Validate
+API --> Store : Read/Write Jobs
+
+@enduml

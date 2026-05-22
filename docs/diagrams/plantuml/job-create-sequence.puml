@@ -1,0 +1,21 @@
+@startuml
+title Create Job Posting - Sequence
+
+actor Recruiter
+participant "Postman/curl" as Client
+participant "FastAPI Router" as Router
+participant "Job Service" as Service
+participant "Job Repository" as Repo
+database "JSON/CSV Backend" as Store
+
+Recruiter -> Client : Submit job payload
+Client -> Router : POST /jobs
+Router -> Service : create_job(payload)
+Service -> Repo : save(job)
+Repo -> Store : persist job
+Store --> Repo : saved
+Repo --> Service : job
+Service --> Router : job
+Router --> Client : HTTP 201 Created
+
+@enduml

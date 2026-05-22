@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# PyCharm
+.idea/
+
+# Test/cache
+.pytest_cache/
+.coverage
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Diagram generated exports can be large; keep source files tracked.
+docs/diagrams/exports/*.png
+docs/diagrams/exports/*.svg
+docs/diagrams/exports/*.pdf
+!docs/diagrams/exports/.gitkeep

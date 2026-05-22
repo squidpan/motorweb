@@ -1,0 +1,27 @@
+@startuml
+title Linux Users and Environment Access
+
+actor "pl\nadmin/sudo" as PL
+actor "dev\ndeveloper" as DEV
+actor "ted\ntest/deploy" as TED
+
+rectangle "/opt/projects\nsource repos" as Projects
+rectangle "/opt/releases\ntagged releases" as Releases
+rectangle "/opt/envs/dev\nowned by svc-dev:env-dev" as DevEnv
+rectangle "/opt/envs/test\nowned by svc-test:env-test" as TestEnv
+rectangle "/opt/envs/prod\nowned by svc-prod:env-prod" as ProdEnv
+
+PL --> Projects : full
+PL --> Releases : full
+PL --> DevEnv : full
+PL --> TestEnv : full
+PL --> ProdEnv : full
+
+DEV --> Projects : read/write
+DEV --> DevEnv : deploy/test
+
+TED --> Releases : clone tags / deploy
+TED --> TestEnv : deploy/test
+TED --> ProdEnv : deploy/test if env-prod granted
+
+@enduml
