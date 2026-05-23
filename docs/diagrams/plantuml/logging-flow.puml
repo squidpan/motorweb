@@ -1,0 +1,24 @@
+@startuml
+title motorweb Logging Flow
+
+actor Client
+participant "FastAPI App" as App
+participant "Request Logging Middleware" as Middleware
+participant "Router / Service / Repository" as Service
+participant "Python Logging" as Logging
+database "stdout" as Stdout
+cloud "Future Log Collector\nLoki / ELK / Cloud Logging" as Collector
+collections "Grafana / Dashboards" as Grafana
+
+Client -> App : HTTP request
+App -> Middleware : enter request
+Middleware -> Logging : log request_started
+Middleware -> Service : process request
+Service -> Logging : app/business/storage logs
+Service --> Middleware : response or exception
+Middleware -> Logging : log request_completed/request_failed
+Logging -> Stdout : emit log line
+Stdout --> Collector : future collection
+Collector --> Grafana : query/visualize logs
+
+@enduml
