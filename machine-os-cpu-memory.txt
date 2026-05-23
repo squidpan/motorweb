@@ -1,0 +1,128 @@
+#!/bin/bash
+
+pl@pop-os:/opt/projects/motorweb$ echo "=== OS ==="
+cat /etc/os-release
+
+echo
+echo "=== Kernel ==="
+uname -a
+
+echo
+echo "=== CPU ==="
+lscpu
+
+echo
+echo "=== Memory ==="
+free -h
+
+echo
+echo "=== Disk ==="
+df -h /
+
+echo
+echo "=== Block Devices ==="
+lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS
+=== OS ===
+NAME="Pop!_OS"
+VERSION="22.04 LTS"
+ID=pop
+ID_LIKE="ubuntu debian"
+PRETTY_NAME="Pop!_OS 22.04 LTS"
+VERSION_ID="22.04"
+HOME_URL="https://pop.system76.com"
+SUPPORT_URL="https://support.system76.com"
+BUG_REPORT_URL="https://github.com/pop-os/pop/issues"
+PRIVACY_POLICY_URL="https://system76.com/privacy"
+VERSION_CODENAME=jammy
+UBUNTU_CODENAME=jammy
+LOGO=distributor-logo-pop-os
+
+=== Kernel ===
+Linux pop-os 6.17.9-76061709-generic #202511241048~1778249354~22.04~d91a106 SMP PREEMPT_DYNAMIC Fri M x86_64 x86_64 x86_64 GNU/Linux
+
+=== CPU ===
+Architecture:                x86_64
+  CPU op-mode(s):            32-bit, 64-bit
+  Address sizes:             48 bits physical, 48 bits virtual
+  Byte Order:                Little Endian
+CPU(s):                      16
+  On-line CPU(s) list:       0-15
+Vendor ID:                   AuthenticAMD
+  Model name:                AMD Ryzen 9 8945HS w/ Radeon 780M Graphics
+    CPU family:              25
+    Model:                   117
+    Thread(s) per core:      2
+    Core(s) per socket:      8
+    Socket(s):               1
+    Stepping:                2
+    Frequency boost:         enabled
+    CPU max MHz:             5263.0610
+    CPU min MHz:             402.7860
+    BogoMIPS:                7985.38
+    Flags:                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clfl
+                             ush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm consta
+                             nt_tsc rep_good amd_lbr_v2 nopl xtopology nonstop_tsc cpuid extd_apicid aper
+                             fmperf rapl pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe 
+                             popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy a
+                             bm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_c
+                             ore perfctr_nb bpext perfctr_llc mwaitx cpuid_fault cpb cat_l3 cdp_l3 hw_pst
+                             ate ssbd mba perfmon_v2 ibrs ibpb stibp ibrs_enhanced vmmcall fsgsbase bmi1 
+                             avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx51
+                             2ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xget
+                             bv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local user_shstk avx5
+                             12_bf16 clzero irperf xsaveerptr rdpru wbnoinvd cppc arat npt lbrv svm_lock 
+                             nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthres
+                             hold vgif x2avic v_spec_ctrl vnmi avx512vbmi umip pku ospke avx512_vbmi2 gfn
+                             i vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid overflow_
+                             recov succor smca fsrm flush_l1d
+Virtualization features:     
+  Virtualization:            AMD-V
+Caches (sum of all):         
+  L1d:                       256 KiB (8 instances)
+  L1i:                       256 KiB (8 instances)
+  L2:                        8 MiB (8 instances)
+  L3:                        16 MiB (1 instance)
+NUMA:                        
+  NUMA node(s):              1
+  NUMA node0 CPU(s):         0-15
+Vulnerabilities:             
+  Gather data sampling:      Not affected
+  Ghostwrite:                Not affected
+  Indirect target selection: Not affected
+  Itlb multihit:             Not affected
+  L1tf:                      Not affected
+  Mds:                       Not affected
+  Meltdown:                  Not affected
+  Mmio stale data:           Not affected
+  Old microcode:             Not affected
+  Reg file data sampling:    Not affected
+  Retbleed:                  Not affected
+  Spec rstack overflow:      Mitigation; Safe RET
+  Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PB
+                             RSB-eIBRS Not affected; BHI Not affected
+  Srbds:                     Not affected
+  Tsa:                       Vulnerable: No microcode
+  Tsx async abort:           Not affected
+  Vmscape:                   Mitigation; IBPB before exit to userspace
+
+=== Memory ===
+               total        used        free      shared  buff/cache   available
+Mem:            60Gi       8.4Gi        47Gi       146Mi       4.7Gi        48Gi
+Swap:           15Gi          0B        15Gi
+
+=== Disk ===
+Filesystem             Size  Used Avail Use% Mounted on
+/dev/mapper/data-root  934G  123G  763G  14% /
+
+=== Block Devices ===
+NAME              SIZE TYPE  FSTYPE      MOUNTPOINTS
+zram0              16G disk              [SWAP]
+nvme0n1         953.9G disk              
+├─nvme0n1p1       976M part  vfat        /boot/efi
+├─nvme0n1p2       3.8G part  vfat        /recovery
+└─nvme0n1p3     949.1G part  crypto_LUKS 
+  └─cryptdata   949.1G crypt LVM2_member 
+    └─data-root 949.1G lvm   ext4        /
+pl@pop-os:/opt/projects/motorweb$ 

@@ -1,0 +1,61 @@
+@startuml
+title motorweb Repository Folder Structure
+
+folder "motorweb" {
+  folder "apps" {
+    folder "job-application-platform" {
+      folder "app" {
+        folder "routers"
+        folder "services"
+        folder "repositories"
+        file "models.py"
+        file "main.py"
+      }
+      folder "data" {
+        file "jobs.json"
+        file "jobs.csv"
+      }
+      folder "tests"
+      folder "scripts"
+      file "Dockerfile"
+      file "pyproject.toml"
+      file "requirements.txt"
+      file "README.md"
+    }
+  }
+
+  folder "docs" {
+    folder "setup"
+    folder "requirements"
+    folder "user-stories"
+    folder "acceptance-criteria"
+    folder "api-design"
+    folder "testing"
+    folder "troubleshooting"
+    folder "runbooks"
+    folder "architecture"
+    folder "diagrams" {
+      folder "plantuml"
+      folder "drawio"
+      folder "images"
+      folder "exports"
+      folder "json"
+      folder "yaml"
+    }
+    folder "obsidian"
+  }
+
+  folder "infra" {
+    folder "docker"
+    folder "k8s"
+    folder "monitoring"
+  }
+
+  folder "scripts" {
+    folder "setup"
+    folder "git"
+    folder "env"
+  }
+}
+
+@enduml

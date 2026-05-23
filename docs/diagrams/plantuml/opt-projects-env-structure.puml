@@ -1,0 +1,35 @@
+@startuml
+title motorweb Linux /opt Layout
+
+folder "/opt" {
+  folder "projects" {
+    folder "motorweb\nactive source repo\npl:developers" {
+      folder "apps"
+      folder "docs"
+      folder "infra"
+      folder "scripts"
+    }
+  }
+
+  folder "releases" {
+    folder "motorweb\ntagged releases\nted:deployers" {
+      folder "v0.1.0"
+      folder "v0.2.0"
+      file "current -> v0.2.0"
+    }
+  }
+
+  folder "envs" {
+    folder "dev" {
+      folder "motorweb\npl:env-dev"
+    }
+    folder "test" {
+      folder "motorweb\nsvc-test:env-test"
+    }
+    folder "prod" {
+      folder "motorweb\nsvc-prod:env-prod"
+    }
+  }
+}
+
+@enduml

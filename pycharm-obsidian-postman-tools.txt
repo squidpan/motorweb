@@ -1,0 +1,45 @@
+echo "=== JetBrains / PyCharm candidates ==="
+ls -d /opt/pycharm* 2>/dev/null || true
+ls -d ~/.local/share/JetBrains/* 2>/dev/null || true
+
+echo
+echo "=== Obsidian ==="
+which obsidian 2>/dev/null || echo "obsidian command not found"
+ls -d /opt/Obsidian 2>/dev/null || true
+
+echo
+echo "=== API clients ==="
+which postman 2>/dev/null || echo "postman command not found"
+which insomnia 2>/dev/null || echo "insomnia command not found"
+ls -d /opt/Insomnia 2>/dev/null || true
+
+pl@pop-os:/opt/projects/motorweb$ echo "=== JetBrains / PyCharm candidates ==="
+ls -d /opt/pycharm* 2>/dev/null || true
+ls -d ~/.local/share/JetBrains/* 2>/dev/null || true
+
+echo
+echo "=== Obsidian ==="
+which obsidian 2>/dev/null || echo "obsidian command not found"
+ls -d /opt/Obsidian 2>/dev/null || true
+
+echo
+echo "=== API clients ==="
+which postman 2>/dev/null || echo "postman command not found"
+which insomnia 2>/dev/null || echo "insomnia command not found"
+ls -d /opt/Insomnia 2>/dev/null || true
+=== JetBrains / PyCharm candidates ===
+/home/pl/.local/share/JetBrains/bl              /home/pl/.local/share/JetBrains/IntelliJIdea2025.2
+/home/pl/.local/share/JetBrains/consentOptions  /home/pl/.local/share/JetBrains/IntelliJIdea2026.1
+/home/pl/.local/share/JetBrains/crl             /home/pl/.local/share/JetBrains/PyCharm2026.1
+/home/pl/.local/share/JetBrains/Daemon          /home/pl/.local/share/JetBrains/Toolbox
+
+=== Obsidian ===
+/home/pl/.local/bin/obsidian
+/opt/Obsidian
+
+=== API clients ===
+postman command not found
+/usr/bin/insomnia
+/opt/Insomnia
+pl@pop-os:/opt/projects/motorweb$ 
+

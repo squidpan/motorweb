@@ -1,0 +1,46 @@
+pl@pop-os:/opt/projects/motorweb$ echo "=== Docker ==="
+docker --version 2>/dev/null || echo "docker not installed"
+
+echo
+echo "=== kubectl ==="
+kubectl version --client 2>/dev/null || echo "kubectl not installed"
+
+echo
+echo "=== kind ==="
+kind --version 2>/dev/null || echo "kind not installed"
+
+echo
+echo "=== helm ==="
+helm version 2>/dev/null || echo "helm not installed"
+
+echo
+echo "=== Java ==="
+java -version 2>&1 | head -3
+
+echo
+echo "=== Node / npm ==="
+node --version 2>/dev/null || echo "node not installed"
+npm --version 2>/dev/null || echo "npm not installed"
+=== Docker ===
+Docker version 29.1.4-rd, build 3c6914c
+
+=== kubectl ===
+Client Version: v1.33.3
+Kustomize Version: v5.6.0
+
+=== kind ===
+kind not installed
+
+=== helm ===
+version.BuildInfo{Version:"v4.0.5", GitCommit:"1b6053d48b51673c5581973f5ae7e104f627fcf5", GitTreeState:"clean", GoVersion:"go1.25.5", KubeClientVersion:"v1.34"}
+
+=== Java ===
+java version "25" 2025-09-16 LTS
+Java(TM) SE Runtime Environment (build 25+37-LTS-3491)
+Java HotSpot(TM) 64-Bit Server VM (build 25+37-LTS-3491, mixed mode, sharing)
+
+=== Node / npm ===
+v22.20.0
+11.9.0
+pl@pop-os:/opt/projects/motorweb$ 
+

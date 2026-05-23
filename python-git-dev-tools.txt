@@ -1,0 +1,69 @@
+echo "=== Python ==="
+python3 --version
+python3.13 --version
+pip --version
+
+echo
+echo "=== Git ==="
+git --version
+
+echo
+echo "=== SSH ==="
+ssh -V
+
+echo
+echo "=== curl ==="
+curl --version | head -5
+
+echo
+echo "=== unzip/zip ==="
+zip --version | head -2
+unzip -v | head -2
+
+
+pl@pop-os:/opt/projects/motorweb$ echo "=== Python ==="
+python3 --version
+python3.13 --version
+pip --version
+
+echo
+echo "=== Git ==="
+git --version
+
+echo
+echo "=== SSH ==="
+ssh -V
+
+echo
+echo "=== curl ==="
+curl --version | head -5
+
+echo
+echo "=== unzip/zip ==="
+zip --version | head -2
+unzip -v | head -2
+=== Python ===
+Python 3.10.12
+Python 3.13.13
+Command 'pip' not found, but can be installed with:
+sudo apt install python3-pip
+
+=== Git ===
+git version 2.34.1
+
+=== SSH ===
+OpenSSH_8.9p1 Ubuntu-3ubuntu0.15, OpenSSL 3.0.2 15 Mar 2022
+
+=== curl ===
+curl 7.81.0 (x86_64-pc-linux-gnu) libcurl/7.81.0 OpenSSL/3.0.2 zlib/1.2.11 brotli/1.0.9 zstd/1.4.8 libidn2/2.3.2 libpsl/0.21.0 (+libidn2/2.3.2) libssh/0.9.6/openssl/zlib nghttp2/1.43.0 librtmp/2.3 OpenLDAP/2.5.20
+Release-Date: 2022-01-05
+Protocols: dict file ftp ftps gopher gophers http https imap imaps ldap ldaps mqtt pop3 pop3s rtmp rtsp scp sftp smb smbs smtp smtps telnet tftp 
+Features: alt-svc AsynchDNS brotli GSS-API HSTS HTTP2 HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM NTLM_WB PSL SPNEGO SSL TLS-SRP UnixSockets zstd
+
+=== unzip/zip ===
+Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
+This is Zip 3.0 (July 5th 2008), by Info-ZIP.
+UnZip 6.00 of 20 April 2009, by Debian. Original by Info-ZIP.
+
+pl@pop-os:/opt/projects/motorweb$ 
+
