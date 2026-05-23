@@ -10,12 +10,8 @@ from app.repositories.seed import seed_jobs
 class JsonJobRepo(JobRepository):
     """Flat-file repository backed by JSON.
 
-    JSON maps naturally to Python dictionaries/lists:
-        JSON object  -> dict
-        JSON array   -> list
-        JSON string  -> str
-        JSON number  -> int/float
-        JSON boolean -> bool
+    This acts as the current file-based database. The API/service layer should
+    not care whether jobs are stored in JSON, CSV, or later PostgreSQL.
     """
 
     def __init__(self, data_file: Path | str):
@@ -70,4 +66,4 @@ class JsonJobRepo(JobRepository):
     def _write_jobs(self, jobs: list[JobPost]) -> None:
         raw_jobs = [job.model_dump() for job in jobs]
         with self.data_file.open("w", encoding="utf-8") as file:
-            json.dump(raw_jobs, file, indent=2)
+            json.dump(raw_jobs, file, indent=2, ensure_ascii=False)

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 
 from app.dependencies import get_job_service
 from app.models import JobPost, JobPostCreate, JobPostUpdate
@@ -8,7 +8,28 @@ router = APIRouter(prefix="/jobs", tags=["jobs"])
 
 
 @router.get("", response_model=list[JobPost])
-def get_all_jobs(service: JobService = Depends(get_job_service)):
+def get_jobs(
+    status_filter: str | None = Query(default=None, alias="status"),
+    company: str | None = None,
+    location: str | None = None,
+    keyword: str | None = None,
+    service: JobService = Depends(get_job_service),
+):
+    """Get jobs from the active flat-file repository.
+
+    Optional query parameters support simple file-backed searches, for example:
+        /jobs?status=Applied
+        /jobs?keyword=Analyst
+        /jobs?location=New York
+        /jobs?company=Citi
+    """
+    if any([status_filter, company, location, keyword]):
+        return service.search_jobs(
+            status=status_filter,
+            company=company,
+            location=location,
+            keyword=keyword,
+        )
     return service.get_all_jobs()
 
 

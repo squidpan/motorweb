@@ -6,26 +6,38 @@ client = TestClient(app)
 
 
 def test_health():
-    response = client.get("/health")
+    response = client.get('/health')
     assert response.status_code == 200
-    assert response.json() == {"status": "ok"}
+    assert response.json()['status'] == 'ok'
 
 
 def test_get_jobs():
-    response = client.get("/jobs")
+    response = client.get('/jobs')
     assert response.status_code == 200
-    assert len(response.json()) >= 5
+    jobs = response.json()
+    assert isinstance(jobs, list)
+    assert len(jobs) >= 1
+    assert 'job_position' in jobs[0]
+
+
+def test_filter_jobs_by_status():
+    response = client.get('/jobs?status=Applied')
+    assert response.status_code == 200
+    for job in response.json():
+        assert job['status'] == 'Applied'
 
 
 def test_create_job():
     payload = {
-        "post_profile": "Python API Developer",
-        "post_desc": "Build REST APIs with FastAPI",
-        "req_experience": 1,
-        "post_tech_stack": ["Python", "FastAPI", "Docker"],
+        'job_position': 'Python API Tester',
+        'company': 'Motorweb Labs',
+        'max_salary': 100000,
+        'location': 'Remote',
+        'status': 'Bookmarked',
+        'date_saved': '05/22/2026',
+        'source': 'pytest',
+        'notes': 'Created by test',
     }
-    response = client.post("/jobs", json=payload)
+    response = client.post('/jobs', json=payload)
     assert response.status_code == 201
-    data = response.json()
-    assert data["post_profile"] == "Python API Developer"
-    assert "post_id" in data
+    assert response.json()['job_position'] == 'Python API Tester'

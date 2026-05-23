@@ -12,5 +12,6 @@ def get_storage_info():
         "json_data_file": str(settings.json_data_file),
         "csv_data_file": str(settings.csv_data_file),
         "supported_backends": ["json", "csv"],
-        "planned_backends": ["postgres"],
+        "planned_backends": ["sqlite", "postgres"],
+        "data_model": "job_application_platform_flat_file_v1",
     }

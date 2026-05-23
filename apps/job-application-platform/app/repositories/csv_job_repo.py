@@ -8,14 +8,23 @@ from app.repositories.seed import seed_jobs
 
 
 class CsvJobRepo(JobRepository):
-    """Flat-file repository backed by a delimited CSV file.
+    """Flat-file repository backed by CSV.
 
-    This file is easy to open in Excel/LibreOffice. The tech stack list is stored
-    as a pipe-delimited value inside one CSV column, for example:
-        Python|FastAPI|PostgreSQL
+    CSV is useful for Excel/LibreOffice processing. JSON is usually better for
+    API loading and scripts. Both backends follow the same repository contract.
     """
 
-    fieldnames = ["post_id", "post_profile", "post_desc", "req_experience", "post_tech_stack"]
+    fieldnames = [
+        "post_id",
+        "job_position",
+        "company",
+        "max_salary",
+        "location",
+        "status",
+        "date_saved",
+        "source",
+        "notes",
+    ]
 
     def __init__(self, data_file: Path | str):
         self.data_file = Path(data_file)
@@ -69,10 +78,14 @@ class CsvJobRepo(JobRepository):
                 jobs.append(
                     JobPost(
                         post_id=int(row["post_id"]),
-                        post_profile=row["post_profile"],
-                        post_desc=row["post_desc"],
-                        req_experience=int(row["req_experience"]),
-                        post_tech_stack=self._parse_tech_stack(row["post_tech_stack"]),
+                        job_position=row.get("job_position", ""),
+                        company=row.get("company", ""),
+                        max_salary=int(row.get("max_salary") or 0),
+                        location=row.get("location", ""),
+                        status=row.get("status", "Bookmarked"),
+                        date_saved=row.get("date_saved", ""),
+                        source=row.get("source", "csv"),
+                        notes=row.get("notes", ""),
                     )
                 )
             return jobs
@@ -82,16 +95,4 @@ class CsvJobRepo(JobRepository):
             writer = csv.DictWriter(file, fieldnames=self.fieldnames)
             writer.writeheader()
             for job in jobs:
-                row = job.model_dump()
-                row["post_tech_stack"] = self._format_tech_stack(job.post_tech_stack)
-                writer.writerow(row)
-
-    @staticmethod
-    def _parse_tech_stack(value: str) -> list[str]:
-        if not value:
-            return []
-        return [item.strip() for item in value.split("|") if item.strip()]
-
-    @staticmethod
-    def _format_tech_stack(values: list[str]) -> str:
-        return "|".join(values)
+                writer.writerow(job.model_dump())

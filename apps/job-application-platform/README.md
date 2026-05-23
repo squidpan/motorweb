@@ -201,3 +201,38 @@ docs/diagrams/
 
 This app should remain the validated working baseline while platform documentation, diagrams, GitHub setup, Linux users, and deployment workflows evolve around it.
 
+---
+
+# v0.5 Data Load / File-Backed Database
+
+This app now separates source dataload files from active database files.
+
+```text
+data/dataload/input/dataload-jobs.csv       # source job tracker CSV
+data/dataload/processed/dataload-jobs.json  # generated JSON
+data/database-files/jobs/jobs.json          # active JSON database
+data/database-files/jobs/jobs.csv           # active CSV database
+data/schemas/jobs.schema.json               # schema reference
+```
+
+Run dataload:
+
+```bash
+source .venv/bin/activate
+scripts/dataload/run-initial-dataload.sh
+```
+
+Run app using JSON database:
+
+```bash
+scripts/run-json.sh
+```
+
+Query examples:
+
+```bash
+curl http://127.0.0.1:8000/jobs
+curl 'http://127.0.0.1:8000/jobs?status=Applied'
+curl 'http://127.0.0.1:8000/jobs?keyword=Analyst'
+curl 'http://127.0.0.1:8000/jobs?location=New%20York'
+```

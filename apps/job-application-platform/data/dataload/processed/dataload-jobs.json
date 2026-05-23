@@ -1,0 +1,178 @@
+[
+  {
+    "post_id": 1,
+    "job_position": "Product Support Analyst",
+    "company": "Liquidnet, Inc.",
+    "max_salary": 105000,
+    "location": "New York",
+    "status": "Bookmarked",
+    "date_saved": "04/07/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 2,
+    "job_position": "Production Support Analyst",
+    "company": "hackajob",
+    "max_salary": 120000,
+    "location": "New York, NY",
+    "status": "Bookmarked",
+    "date_saved": "04/24/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 3,
+    "job_position": "Business Operations Specialist",
+    "company": "Wisp",
+    "max_salary": 135000,
+    "location": "United States",
+    "status": "Bookmarked",
+    "date_saved": "04/05/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 4,
+    "job_position": "Business Analyst, Global Retail Technology",
+    "company": "The Estée Lauder Companies Inc.",
+    "max_salary": 107250,
+    "location": "New York, NY",
+    "status": "Applied",
+    "date_saved": "03/23/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 5,
+    "job_position": "Staff Product Operations Specialist",
+    "company": "Accrete",
+    "max_salary": 0,
+    "location": "New York, NY",
+    "status": "Bookmarked",
+    "date_saved": "04/01/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 6,
+    "job_position": "Application and Production Support Lead, Assistant Vice President",
+    "company": "Citi",
+    "max_salary": 163680,
+    "location": "New York, NY",
+    "status": "Applied",
+    "date_saved": "04/01/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 7,
+    "job_position": "Analyst/Senior Analyst, Business Operations & Strategy (Remote - Eastern Region)",
+    "company": "Yelp, Inc",
+    "max_salary": 130000,
+    "location": "",
+    "status": "Bookmarked",
+    "date_saved": "04/06/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 8,
+    "job_position": "Product Operations Associate",
+    "company": "EvenUp",
+    "max_salary": 187602,
+    "location": "United States",
+    "status": "Bookmarked",
+    "date_saved": "04/06/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 9,
+    "job_position": "Electronic Trading Support Engineer",
+    "company": "Hudson River Trading",
+    "max_salary": 150000,
+    "location": "New York, NY",
+    "status": "Bookmarked",
+    "date_saved": "04/24/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 10,
+    "job_position": "Business Analyst, Support Operations",
+    "company": "Pinnacle Method Consulting",
+    "max_salary": 124000,
+    "location": "United States",
+    "status": "Bookmarked",
+    "date_saved": "04/06/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 11,
+    "job_position": "Business Analyst, Banking Transactions",
+    "company": "BIP",
+    "max_salary": 140000,
+    "location": "Jersey City, NJ",
+    "status": "Applied",
+    "date_saved": "03/23/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 12,
+    "job_position": "Sr. Business Analyst- Bilingual (Korean and English)",
+    "company": "Woongjin, Inc",
+    "max_salary": 105000,
+    "location": "Ridgefield Park, NJ",
+    "status": "Applied",
+    "date_saved": "03/18/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 13,
+    "job_position": "Jr. Operations Engineer",
+    "company": "Robert Half",
+    "max_salary": 0,
+    "location": "New York, NY",
+    "status": "Bookmarked",
+    "date_saved": "04/22/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 14,
+    "job_position": "Lead Business Analyst / Analyste Commercial Principal",
+    "company": "Insurity",
+    "max_salary": 150000,
+    "location": "",
+    "status": "Bookmarked",
+    "date_saved": "03/18/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 15,
+    "job_position": "Analyst II, Systems Operations",
+    "company": "Intercontinental Exchange Holdings, Inc.",
+    "max_salary": 97900,
+    "location": "New York, New York, United States",
+    "status": "Bookmarked",
+    "date_saved": "04/07/2026",
+    "source": "teal",
+    "notes": ""
+  },
+  {
+    "post_id": 16,
+    "job_position": "Customer Business Analyst",
+    "company": "Personetics",
+    "max_salary": 130000,
+    "location": "New York, NY",
+    "status": "Applied",
+    "date_saved": "04/06/2026",
+    "source": "teal",
+    "notes": ""
+  }
+]

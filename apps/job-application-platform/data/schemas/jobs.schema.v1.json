@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jobs.schema.v1.json",
+  "title": "Job Dataload Schema v1",
+  "type": "object",
+  "required": [
+    "id",
+    "job_position",
+    "company",
+    "max_salary",
+    "location",
+    "status",
+    "date_saved"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "job_position": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "max_salary": {
+      "type": "integer"
+    },
+    "location": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "date_saved": {
+      "type": "string",
+      "description": "MM/DD/YYYY in current flat-file version"
+    }
+  }
+}

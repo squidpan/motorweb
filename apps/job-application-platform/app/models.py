@@ -2,10 +2,14 @@ from pydantic import BaseModel, Field
 
 
 class JobPostBase(BaseModel):
-    post_profile: str = Field(..., examples=["Python Developer"])
-    post_desc: str = Field(..., examples=["Build and support REST APIs using Python and FastAPI"])
-    req_experience: int = Field(..., ge=0, examples=[2])
-    post_tech_stack: list[str] = Field(default_factory=list, examples=[["Python", "FastAPI", "PostgreSQL"]])
+    job_position: str = Field(..., examples=["Production Support Analyst"])
+    company: str = Field(..., examples=["Example Company"])
+    max_salary: int = Field(default=0, ge=0, examples=[120000])
+    location: str = Field(default="", examples=["New York, NY"])
+    status: str = Field(default="Bookmarked", examples=["Bookmarked"])
+    date_saved: str = Field(default="", examples=["04/24/2026"])
+    source: str = Field(default="manual", examples=["teal"])
+    notes: str = Field(default="", examples=[""])
 
 
 class JobPostCreate(JobPostBase):
@@ -13,10 +17,14 @@ class JobPostCreate(JobPostBase):
 
 
 class JobPostUpdate(BaseModel):
-    post_profile: str | None = None
-    post_desc: str | None = None
-    req_experience: int | None = Field(default=None, ge=0)
-    post_tech_stack: list[str] | None = None
+    job_position: str | None = None
+    company: str | None = None
+    max_salary: int | None = Field(default=None, ge=0)
+    location: str | None = None
+    status: str | None = None
+    date_saved: str | None = None
+    source: str | None = None
+    notes: str | None = None
 
 
 class JobPost(JobPostBase):

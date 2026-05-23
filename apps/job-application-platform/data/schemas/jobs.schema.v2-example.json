@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "jobs.schema.v2.example.json",
+  "title": "Job Dataload Schema v2 Example",
+  "type": "object",
+  "required": [
+    "id",
+    "job_position",
+    "company",
+    "status",
+    "date_saved"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "job_position": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "max_salary": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "min_salary": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD"
+    },
+    "location": {
+      "type": "string"
+    },
+    "work_mode": {
+      "type": "string",
+      "enum": [
+        "Remote",
+        "Hybrid",
+        "Onsite",
+        "Unknown"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "date_saved": {
+      "type": "string"
+    },
+    "date_applied": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,7 +1,6 @@
-# motorweb
-## Modern Web Platform
+# Modern Web Platform (aka motorweb)
 
-`motorweb` is a long-term engineering learning platform for building, testing, deploying, documenting, and operating modern web applications.
+This is the baseline engineering repository for building modern Python web applications and REST APIs.
 
 The first reference implementation is:
 
@@ -9,290 +8,135 @@ The first reference implementation is:
 apps/job-application-platform/
 ```
 
-The first implementation uses:
+This repository supports:
 
-```text
-Python
-FastAPI
-Uvicorn
-JSON/CSV flat-file storage
-pytest
-curl/Postman testing
-```
-
-Later implementations may include:
-
-```text
-PostgreSQL
-Docker
-Kubernetes
-Prometheus
-Grafana
-OAuth2/JWT
-Cloud deployment
-Java/Spring Boot
-Music catalog APIs
-E-commerce APIs
-```
+- Job Application Platform as the first use case
+- Future Music Catalog Platform use case
+- FastAPI REST APIs
+- JSON/CSV flat-file persistence
+- Future PostgreSQL persistence
+- API testing with curl and Postman
+- Git/GitHub workflow
+- Multiple GitHub accounts using SSH aliases
+- Linux multi-user development/deploy model
+- Dev/Test/Prod environment model
+- Service accounts
+- Docker/Kubernetes/monitoring evolution
+- PlantUML, draw.io, and architecture diagrams
+- Obsidian engineering knowledge base
 
 ---
 
-# 1. Quick Start - Run the Job Application Platform
+## Immediate Setup Order
 
-Start here after cloning/extracting the repo.
-
-## 1.1 Go to the app folder
+### Step 1 — Extract this package
 
 ```bash
-cd /opt/projects/motorweb/apps/job-application-platform
+cd ~/pjs/repos/PycharmProjects
+unzip motorweb-baseline-v0.4-platform.zip
+cd motorweb
 ```
 
-Or, if you are still working from your home folder:
+### Step 2 — Validate the app locally
 
 ```bash
-cd ~/pjs/repos/PycharmProjects/motorweb/apps/job-application-platform
-```
-
-## 1.2 Create Python virtual environment
-
-```bash
+cd apps/job-application-platform
 python3.13 -m venv .venv
-```
-
-## 1.3 Activate virtual environment
-
-```bash
 source .venv/bin/activate
-```
-
-You should see something like:
-
-```text
-(.venv)
-```
-
-in your shell prompt.
-
-## 1.4 Install dependencies
-
-```bash
 pip install -r requirements.txt
-```
-
-## 1.5 Run the API
-
-```bash
 uvicorn app.main:app --reload
 ```
 
-Open Swagger/OpenAPI docs:
+Open:
 
 ```text
 http://127.0.0.1:8000/docs
 ```
 
-If port `8000` is already used:
+If port 8000 is busy:
 
 ```bash
 uvicorn app.main:app --reload --port 8001
 ```
 
-Then open:
+### Step 3 — Initialize Git
 
-```text
-http://127.0.0.1:8001/docs
-```
-
----
-
-# 2. Quick API Validation
-
-## 2.1 Health check
+From the repository root:
 
 ```bash
-curl http://127.0.0.1:8000/health
+cd ~/pjs/repos/PycharmProjects/motorweb
+git init
+git add .
+git commit -m "Initial validated platform baseline with Job Application Platform"
 ```
 
-Expected:
+### Step 4 — Set up GitHub SSH access
 
-```json
-{"status":"ok"}
-```
-
-## 2.2 Get jobs
-
-```bash
-curl http://127.0.0.1:8000/jobs
-```
-
-## 2.3 Check active storage backend
-
-```bash
-curl http://127.0.0.1:8000/storage
-```
-
----
-
-# 3. Storage Backend Modes
-
-The app supports configurable flat-file storage.
-
-## 3.1 JSON backend
-
-```bash
-export JOBAPP_STORAGE_BACKEND=json
-uvicorn app.main:app --reload
-```
-
-## 3.2 CSV backend
-
-```bash
-export JOBAPP_STORAGE_BACKEND=csv
-uvicorn app.main:app --reload
-```
-
-The design goal is:
-
-```text
-API layer stays stable
-Service layer stays stable
-Repository backend can change
-```
-
-Storage roadmap:
-
-```text
-JSON / CSV
-    ↓
-SQLite
-    ↓
-PostgreSQL
-    ↓
-future distributed stores if useful
-```
-
----
-
-# 4. Project Layout
-
-```text
-motorweb/
-├── apps/
-│   └── job-application-platform/
-│       ├── app/
-│       ├── tests/
-│       ├── scripts/
-│       ├── Dockerfile
-│       ├── README.md
-│       ├── pyproject.toml
-│       └── requirements.txt
-│
-├── docs/
-│   ├── setup/
-│   ├── git/
-│   ├── linux-users/
-│   ├── environments/
-│   ├── requirements/
-│   ├── user-stories/
-│   ├── acceptance-criteria/
-│   ├── api-design/
-│   ├── testing/
-│   ├── troubleshooting/
-│   ├── runbooks/
-│   ├── diagrams/
-│   └── obsidian/
-│
-├── infra/
-│   ├── docker/
-│   ├── k8s/
-│   └── monitoring/
-│
-└── scripts/
-```
-
----
-
-# 5. Documentation Map
-
-Use this section to find the right documentation quickly.
-
-## 5.1 Initial setup
+Follow:
 
 ```text
 docs/setup/01-github-multiple-ssh-accounts.md
-docs/setup/02-initial-github-push.md
-docs/setup/03-linux-users-service-accounts.md
-docs/setup/04-post-setup-troubleshooting-links.md
-docs/setup/05-shared-opt-projects-model.md
-docs/setup/06-branch-merge-doc-updates.md
 ```
 
-## 5.2 Environment model
+### Step 5 — Push to GitHub
+
+Follow:
+
+```text
+docs/setup/02-initial-github-push.md
+```
+
+### Step 6 — Set up Linux users, groups, and service accounts
+
+Follow:
+
+```text
+docs/setup/03-linux-users-service-accounts.md
+```
+
+### Step 7 — Review environment access model
+
+Follow:
 
 ```text
 docs/environments/dev-test-prod-access-model.md
 ```
 
-## 5.3 Troubleshooting
+---
+
+## Core User Model
+
+Human users:
 
 ```text
-docs/troubleshooting/README.md
-docs/troubleshooting/git-and-ssh.md
-docs/troubleshooting/linux-permissions-and-groups.md
-docs/troubleshooting/shared-repo-workflow.md
-docs/troubleshooting/opt-projects-permissions.md
+pl   = admin/sudo user
+dev  = developer/test user with full repo access
+ted  = test/deploy operator with read-only repo access
 ```
 
-## 5.4 Runbooks
+Service accounts:
 
 ```text
-docs/runbooks/initial-setup-validation-runbook.md
-docs/runbooks/reclone-motorweb-under-opt-projects.md
+svc-dev   = owns/runs dev environment
+svc-test  = owns/runs test environment
+svc-prod  = owns/runs prod environment
 ```
 
-## 5.5 Diagrams
+Main rule:
 
 ```text
-docs/diagrams/README.md
-docs/diagrams/plantuml/
-docs/diagrams/drawio/
-docs/diagrams/images/
-docs/diagrams/exports/
-docs/diagrams/json/
-docs/diagrams/yaml/
-```
-
-## 5.6 Business analysis docs
-
-```text
-docs/requirements/
-docs/user-stories/
-docs/acceptance-criteria/
-docs/api-design/
-docs/testing/
-```
-
-## 5.7 Obsidian planning
-
-```text
-docs/obsidian/
+pl/dev can modify source repositories.
+ted can deploy/test from tagged releases but should not modify source repositories.
 ```
 
 ---
 
-# 6. GitHub and SSH Setup
+## GitHub Account Model
 
-This repo is intended to use GitHub SSH access.
-
-Primary account:
+You have two GitHub accounts:
 
 ```text
 squidpan
-```
-
-Secondary account:
-
-```text
 paulchlyu
 ```
 
@@ -303,331 +147,27 @@ github-squidpan
 github-paulchlyu
 ```
 
-Main repo remote:
+Example main repo remote:
 
 ```bash
-git@github-squidpan:squidpan/motorweb.git
-```
-
-Setup guide:
-
-```text
-docs/setup/01-github-multiple-ssh-accounts.md
-```
-
-Common issues:
-
-```text
-docs/troubleshooting/git-and-ssh.md
+git remote add origin git@github-squidpan:squidpan/motorweb.git
 ```
 
 ---
 
-# 7. Recommended Local Repo Location
+## Diagram Strategy
 
-The intended shared local repo location is:
-
-```text
-/opt/projects/motorweb
-```
-
-Shared source-code model:
+Diagram folders are ready for:
 
 ```text
-pl  = senior developer + sudo/admin
-dev = regular developer
-ted = deploy/test operator
-```
-
-Both `pl` and `dev` should be able to create, modify, commit, and manage files under:
-
-```text
-/opt/projects
-```
-
-`ted` should not modify source repositories.
-
-Recommended ownership:
-
-```text
-/opt/projects
-owner: dev
-group: developers
-mode: 2775
-```
-
-Expected:
-
-```bash
-ls -ld /opt/projects
-```
-
-```text
-drwxrwsr-x dev developers /opt/projects
-```
-
-Detailed guide:
-
-```text
-docs/setup/05-shared-opt-projects-model.md
-```
-
-Troubleshooting:
-
-```text
-docs/troubleshooting/opt-projects-permissions.md
-```
-
----
-
-# 8. Linux User and Environment Model
-
-Human users:
-
-```text
-pl   = senior developer + sudo/admin
-dev  = regular developer
-ted  = deploy/test operator
-```
-
-Service accounts:
-
-```text
-svc-dev
-svc-test
-svc-prod
-```
-
-Environment groups:
-
-```text
-env-dev
-env-test
-env-prod
-```
-
-Environment folders:
-
-```text
-/opt/envs/dev/motorweb
-/opt/envs/test/motorweb
-/opt/envs/prod/motorweb
-```
-
-Release folder:
-
-```text
-/opt/releases/motorweb
-```
-
-Setup guide:
-
-```text
-docs/setup/03-linux-users-service-accounts.md
-```
-
-Environment model:
-
-```text
-docs/environments/dev-test-prod-access-model.md
-```
-
----
-
-# 9. Recommended Git Workflow
-
-## 9.1 Check current branch
-
-```bash
-cd /opt/projects/motorweb
-git status
-```
-
-## 9.2 Create a feature branch using modern Git syntax
-
-```bash
-git switch -c feature/my-change
-```
-
-## 9.3 Add and commit
-
-```bash
-git add .
-git commit -m "Describe the change"
-```
-
-## 9.4 Push branch
-
-```bash
-git push -u origin feature/my-change
-```
-
-## 9.5 Merge back to main locally
-
-```bash
-git switch main
-git pull
-git merge feature/my-change
-git push origin main
-```
-
-More details:
-
-```text
-docs/setup/06-branch-merge-doc-updates.md
-```
-
----
-
-# 10. Applying Documentation Overlay Packages
-
-For a docs-only zip update:
-
-```bash
-cd /opt/projects/motorweb
-git switch main
-git pull
-git switch -c feature/docs-update
-unzip ~/Downloads/<doc-update-package>.zip -d .
-git status
-git diff --stat
-git add .
-git commit -m "Update documentation"
-git push -u origin feature/docs-update
-```
-
-Merge:
-
-```bash
-git switch main
-git pull
-git merge feature/docs-update
-git push origin main
-```
-
----
-
-# 11. Common Troubleshooting Quick Reference
-
-## 11.1 SSH agent has no identities
-
-```bash
-ssh-add -l
-ssh-add ~/.ssh/id_ed25519_squidpan
-```
-
-See:
-
-```text
-docs/troubleshooting/git-and-ssh.md
-```
-
-## 11.2 GitHub permission denied publickey
-
-```bash
-ssh -T github-squidpan
-cat ~/.ssh/config
-ssh-add -l
-```
-
-See:
-
-```text
-docs/troubleshooting/git-and-ssh.md
-```
-
-## 11.3 Git remote origin already exists
-
-```bash
-git remote -v
-git remote set-url origin git@github-squidpan:squidpan/motorweb.git
-```
-
-See:
-
-```text
-docs/troubleshooting/git-and-ssh.md
-```
-
-## 11.4 Git dubious ownership
-
-```bash
-git config --global --add safe.directory /opt/projects/motorweb
-```
-
-See:
-
-```text
-docs/troubleshooting/linux-permissions-and-groups.md
-```
-
-## 11.5 Git index.lock permission denied
-
-```bash
-id
-newgrp developers
-cd /opt/projects/motorweb
-git add .
-```
-
-See:
-
-```text
-docs/troubleshooting/opt-projects-permissions.md
-```
-
-## 11.6 Port 8000 already in use
-
-Use another port:
-
-```bash
-uvicorn app.main:app --reload --port 8001
-```
-
-Or find the process:
-
-```bash
-ss -tulpen | grep 8000
-```
-
----
-
-# 12. PlantUML, draw.io, and Architecture Diagrams
-
-Diagram sources live under:
-
-```text
-docs/diagrams/
-```
-
-PlantUML examples:
-
-```text
-docs/diagrams/plantuml/jobapp-context.puml
-docs/diagrams/plantuml/job-create-sequence.puml
-docs/diagrams/plantuml/linux-users-env-access.puml
-```
-
-Can PlantUML be generated from Python source?
-
-Partially.
-
-Good candidates:
-
-```text
-class diagrams
-package/module diagrams
-dependency diagrams
-```
-
-Usually better manually designed:
-
-```text
-sequence diagrams
+PlantUML
+draw.io
+PNG/SVG exports
 architecture diagrams
-deployment diagrams
-business process flows
-Kubernetes diagrams
+sequence diagrams
+class diagrams
+YAML structure diagrams
+JSON payload diagrams
 ```
 
 See:
@@ -636,22 +176,19 @@ See:
 docs/diagrams/README.md
 ```
 
+Yes, PlantUML diagrams can be created from Python source code, but with limits:
+
+- Class diagrams can be partially generated from Python source using tools.
+- Sequence diagrams usually need to be designed manually from request flow.
+- Architecture diagrams are best maintained manually.
+- YAML/JSON diagrams are usually best created from examples/contracts.
+
 ---
 
-# 13. Business Analysis Perspective
-
-This project includes business analysis artifacts because the goal is not just coding.
-
-Planned/active BA docs:
+## Recommended Master Skill Name
 
 ```text
-requirements
-user stories
-acceptance criteria
-API contracts
-test scenarios
-process flows
-runbooks
+Modern Web Platform (aka motorweb)
 ```
 
 First reference use case:
@@ -668,141 +205,77 @@ E-Commerce Platform
 Inventory Catalog Platform
 ```
 
+
 ---
 
-# 14. Obsidian Knowledge Base Strategy
-
-Recommended master skill / topic:
+## Naming
 
 ```text
-Modern Web Platform
+motorweb = Modern Web Platform
 ```
 
-Also described as:
+The platform is intentionally technology-agnostic long term.
+
+While the first validated reference implementation is:
 
 ```text
-Modern Web Application Platform Engineering
+apps/job-application-platform
 ```
 
-First use case:
+using:
 
 ```text
-Job Application Platform
-```
-
-The implementation repo and the Obsidian knowledge base should evolve together.
-
-Suggested Obsidian note domains:
-
-```text
-requirements
-user stories
-acceptance criteria
-REST APIs
+Python
 FastAPI
-PostgreSQL
-Docker
-Kubernetes
-monitoring
-networking
-observability
-deployment
-testing
-troubleshooting
-runbooks
 ```
+
+future reference implementations may include:
+
+```text
+Java
+Spring Boot
+Node.js
+Go
+```
+
+The Job Application Platform remains the first reference implementation and keeps its current folder name unchanged.
 
 ---
 
-# 15. Development Roadmap
+## v0.5 Data Load and File-Backed Database Foundation
 
-## Phase 1 - Current
+The Job Application Platform now includes a deliberate file-backed data design.
 
-```text
-FastAPI app
-CRUD endpoints
-JSON storage
-CSV storage
-Swagger docs
-curl/Postman testing
-Git/GitHub setup
-Linux multiuser setup
-```
-
-## Phase 2 - Documentation hardening
+Key docs:
 
 ```text
-README consolidation
-setup docs
-troubleshooting docs
-runbooks
-BA docs
-diagram structure
+docs/data/file-backed-database-design.md
+docs/runbooks/initial-job-dataload-runbook.md
+docs/api-design/jobs-query-api.md
 ```
 
-## Phase 3 - Database
+App data folders:
 
 ```text
-SQLite
-PostgreSQL
-SQLAlchemy
-Alembic
+apps/job-application-platform/data/dataload/input/
+apps/job-application-platform/data/dataload/processed/
+apps/job-application-platform/data/database-files/jobs/
+apps/job-application-platform/data/schemas/
 ```
 
-## Phase 4 - Containerization
+Run initial dataload:
 
-```text
-Dockerfile refinement
-Docker Compose
-API + database containers
+```bash
+cd apps/job-application-platform
+source .venv/bin/activate
+scripts/dataload/run-initial-dataload.sh
+scripts/run-json.sh
 ```
 
-## Phase 5 - Kubernetes
+Test:
 
-```text
-namespace
-deployment
-service
-configmap
-secret
-ingress
+```bash
+curl http://127.0.0.1:8000/jobs
+curl 'http://127.0.0.1:8000/jobs?status=Applied'
+curl 'http://127.0.0.1:8000/jobs?keyword=Analyst'
 ```
-
-## Phase 6 - Monitoring
-
-```text
-Prometheus
-Grafana
-health checks
-readiness/liveness probes
-```
-
-## Phase 7 - Auth
-
-```text
-OAuth2
-JWT
-RBAC
-```
-
-## Phase 8 - Cloud / Homelab
-
-```text
-Proxmox
-k3s/kind/k8s
-AWS
-Google Cloud
-```
-
----
-
-# 16. Golden Rules
-
-1. Keep working app code stable.
-2. Use branches for changes.
-3. `pl` and `dev` can modify source.
-4. `ted` deploys/tests from releases, not source.
-5. Do not use `sudo git`.
-6. Prefer terminal commands over GUI copy/paste for `/opt/projects`.
-7. Document every real failure in `docs/troubleshooting`.
-8. Keep README useful as the main entry point.1G

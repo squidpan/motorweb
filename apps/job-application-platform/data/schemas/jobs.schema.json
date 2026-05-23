@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Motorweb Job Record",
+  "type": "object",
+  "required": [
+    "post_id",
+    "job_position",
+    "company",
+    "max_salary",
+    "location",
+    "status",
+    "date_saved"
+  ],
+  "properties": {
+    "post_id": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "job_position": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "max_salary": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "location": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "examples": [
+        "Bookmarked",
+        "Applied"
+      ]
+    },
+    "date_saved": {
+      "type": "string",
+      "description": "MM/DD/YYYY for current flat-file version"
+    },
+    "source": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
